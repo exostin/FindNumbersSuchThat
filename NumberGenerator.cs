@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+
 namespace FindNumbersSuchThat;
 
 public class NumberGenerator
@@ -17,6 +19,14 @@ public class NumberGenerator
     {
         _conditions.Add(condition);
         _conditionsInputs.Add(conditionInput);
+    }
+    /// <summary>
+    /// Exclude specified numbers from being included in the output
+    /// </summary>
+    /// <param name="numbers">List of numbers to be excluded</param>
+    public void ExcludeNumbers(IEnumerable<int> numbers)
+    {
+        _discardedNumbers.AddRange(numbers);
     }
 
     /// <summary>

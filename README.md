@@ -31,6 +31,7 @@ numberGenerator.AddCondition(Conditions.IsHigherThan, 3);
 numberGenerator.AddCondition(Conditions.IsLowerThan, 200);
 numberGenerator.AddCondition(Conditions.IsDivBy, 3);
 numberGenerator.AddCondition(Conditions.IsSemiPrime);
+numberGenerator.ExcludeNumbers(new List<int> { 4, 6, 9, 10, 14, 15, 21, 22 });
 ```
 
 4. Generate two arrays containing `n` numbers, first with duplicate numbers, second without. Example with `n = 10`:
@@ -43,25 +44,25 @@ var numArrayWithoutDuplicates = numberGenerator.GenerateNumbersArray(10, allowDu
 Printed arrays example:
 
 ```
-123
-51
-9
-177
-93
-39
-141
-141
-39
-93
-
-6
-51
-57
-129
-111
-159
 87
-141
-177
+87
+159
+93
+57
+159
+51
+129
+57
+69
+
+183
 123
+33
+141
+87
+159
+93
+51
+129
+57
 ```
