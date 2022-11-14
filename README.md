@@ -1,6 +1,8 @@
 # Find Numbers Such That
 
-This console app is an easily extensible generator for random numbers that satisfy given conditions.
+As the title suggests, this console app is an easily extensible generator of random numbers that satisfy given conditions.
+
+I will also soon add the functionality to find ALL numbers satisfying given conditions in the specified range.
 
 ## Usage
 
