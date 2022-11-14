@@ -1,11 +1,10 @@
-using System;
-using System.Collections.Generic;
+namespace FindRandomNumbersSuchThat;
 
 public class NumberGenerator
 {
-    List<Func<int, int, bool>> _conditions = new();
-    List<int> _conditionsInputs = new();
-    Random _rand = new();
+    private readonly List<Func<int, int, bool>> _conditions = new();
+    private readonly List<int> _conditionsInputs = new();
+    private readonly Random _rand = new();
 
     public void AddCondition(Func<int, int, bool> condition, int conditionInput)
     {
@@ -13,12 +12,16 @@ public class NumberGenerator
         _conditionsInputs.Add(conditionInput);
     }
     
-    /// Function which generates an array of specified length
-    public int[] GenerateNumbersArray(int arrayLength)
+    /// <summary>
+    /// Function which generates an array of specified length, which contains numbers that satisfy all specified conditions
+    /// </summary>
+    /// <param name="arrayLength">How many numbers should the generated array be populated with</param>
+    /// <returns>Array of numbers fulfilling specified conditions</returns>
+    public IEnumerable<int> GenerateNumbersArray(int arrayLength)
     {
-        int[] generatedNumbers = new int[arrayLength];
+        var generatedNumbers = new int[arrayLength];
 
-        for (int i = 0; i < generatedNumbers.Length; i++)
+        for (var i = 0; i < generatedNumbers.Length; i++)
         {
             generatedNumbers[i] += GenerateCertainNumber();
         }
@@ -26,14 +29,14 @@ public class NumberGenerator
     }
 
     /// Function to generate a number which fulfills specified conditions
-    int GenerateCertainNumber()
+    private int GenerateCertainNumber()
     {
         int randomNumber;
         var randomNumberPassedConditions = false;
         do
         {
             randomNumber = _rand.Next(1, 1000);
-            for (int i = 0; i < _conditions.Count; i++)
+            for (var i = 0; i < _conditions.Count; i++)
             {
                 if (!_conditions[i](randomNumber, _conditionsInputs[i]))
                 {

@@ -1,20 +1,23 @@
-using System;
-using System.Collections.Generic;
+namespace FindRandomNumbersSuchThat;
 
-public class Program
+public static class Program
 {
     public static void Main()
     {
-        var _numberGenerator = new NumberGenerator();
+        var numberGenerator = new NumberGenerator();
+        
+        #region Usage example
+        
+        numberGenerator.AddCondition(Conditions.IsHigherThan, 3);
+        numberGenerator.AddCondition(Conditions.IsLowerThan, 200);
+        numberGenerator.AddCondition(Conditions.IsDivBy, 3);
 
-        _numberGenerator.AddCondition(Conditions.higherThan, 3);
-        _numberGenerator.AddCondition(Conditions.lowerThan, 200);
-        _numberGenerator.AddCondition(Conditions.divBy, 3);
-
-        var numArray = _numberGenerator.GenerateNumbersArray(15);
+        var numArray = numberGenerator.GenerateNumbersArray(15);
         foreach (int number in numArray)
         {
             Console.WriteLine(number);
         }
+
+        #endregion
     }
 }
