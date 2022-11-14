@@ -1,4 +1,4 @@
-namespace FindRandomNumbersSuchThat;
+namespace FindNumbersSuchThat;
 
 public static class Conditions
 {

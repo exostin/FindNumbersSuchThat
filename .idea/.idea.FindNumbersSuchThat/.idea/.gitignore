@@ -3,8 +3,8 @@
 /workspace.xml
 # Rider ignored files
 /modules.xml
-/.idea.FindRandomNumbersSuchThat.iml
 /contentModel.xml
+/.idea.FindNumbersSuchThat.iml
 /projectSettingsUpdater.xml
 # Editor-based HTTP Client requests
 /httpRequests/

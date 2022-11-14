@@ -1,4 +1,4 @@
-namespace FindRandomNumbersSuchThat;
+namespace FindNumbersSuchThat;
 
 public class NumberGenerator
 {
@@ -6,12 +6,12 @@ public class NumberGenerator
     private readonly List<int> _conditionsInputs = new();
     private readonly Random _rand = new();
 
-    private readonly List<int> discardedNumbers = new();
+    private readonly List<int> _discardedNumbers = new();
 
     /// <summary>
     /// Add a condition delegate along with the parameter it should take
     /// </summary>
-    /// <param name="condition">Func<int, int, bool> delegate containing reference to the corresponding condition check method</param>
+    /// <param name="condition">Func delegate containing reference to the corresponding condition check method</param>
     /// <param name="conditionInput">Input for the delegate, if it doesn't need any, the default value will be 0 (temporarily, until I find a more flexible solution)</param>
     public void AddCondition(Func<int, int, bool> condition, int conditionInput = 0)
     {
@@ -44,14 +44,14 @@ public class NumberGenerator
         do
         {
             randomNumber = _rand.Next(1, 1000);
-            if (discardedNumbers.Contains(randomNumber)) continue;
-            if (!allowDuplicates) discardedNumbers.Add(randomNumber);
+            if (_discardedNumbers.Contains(randomNumber)) continue;
+            if (!allowDuplicates) _discardedNumbers.Add(randomNumber);
             for (var i = 0; i < _conditions.Count; i++)
             {
                 if (!_conditions[i](randomNumber, _conditionsInputs[i]))
                 {
                     randomNumberPassedConditions = false;
-                    if (allowDuplicates) discardedNumbers.Add(randomNumber);
+                    if (allowDuplicates) _discardedNumbers.Add(randomNumber);
                     break;
                 }
                 else

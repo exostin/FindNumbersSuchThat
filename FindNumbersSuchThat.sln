@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.4.33103.184
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindRandomNumbersSuchThat", "FindRandomNumbersSuchThat.csproj", "{259FB2C5-22E2-4A1E-A562-5792159D6829}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindNumbersSuchThat", "FindNumbersSuchThat.csproj", "{259FB2C5-22E2-4A1E-A562-5792159D6829}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
