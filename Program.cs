@@ -11,7 +11,7 @@ public static class Program
         numberGenerator.AddCondition(Conditions.IsHigherThan, 3);
         numberGenerator.AddCondition(Conditions.IsLowerThan, 200);
         numberGenerator.AddCondition(Conditions.IsDivBy, 3);
-        numberGenerator.AddCondition(Conditions.IsSemiPrime, 0);
+        numberGenerator.AddCondition(Conditions.IsSemiPrime);
 
         var numArrayWithDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: true);
         var numArrayWithoutDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: false);

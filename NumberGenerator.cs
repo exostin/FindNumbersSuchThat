@@ -8,7 +8,12 @@ public class NumberGenerator
 
     private readonly List<int> discardedNumbers = new();
 
-    public void AddCondition(Func<int, int, bool> condition, int conditionInput)
+    /// <summary>
+    /// Add a condition delegate along with the parameter it should take
+    /// </summary>
+    /// <param name="condition">Func<int, int, bool> delegate containing reference to the corresponding condition check method</param>
+    /// <param name="conditionInput">Input for the delegate, if it doesn't need any, the default value will be 0 (temporarily, until I find a more flexible solution)</param>
+    public void AddCondition(Func<int, int, bool> condition, int conditionInput = 0)
     {
         _conditions.Add(condition);
         _conditionsInputs.Add(conditionInput);
