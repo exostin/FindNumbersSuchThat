@@ -29,42 +29,43 @@ var numberGenerator = new NumberGenerator();
 3. Add conditions to the `NumberGenerator` instance. Example:
 
 ```csharp
-numberGenerator.AddCondition(Conditions.IsHigherThan, 3);
-numberGenerator.AddCondition(Conditions.IsLowerThan, 200);
-numberGenerator.AddCondition(Conditions.IsDivBy, 3);
-numberGenerator.AddCondition(Conditions.IsSemiPrime);
+numberGenerator.SetRange(1, 1000);
 numberGenerator.ExcludeNumbers(new List<int> { 4, 6, 9, 10, 14, 15, 21, 22 });
+numberGenerator.AddCondition(Conditions.IsDivisibleBy, 3);
+numberGenerator.AddCondition(Conditions.IsSemiPrime);
 ```
 
 4. Generate two arrays containing `n` numbers, first with duplicate numbers, second without. Example with `n = 10`:
 
 ```csharp
-var numArrayWithDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: true);
 var numArrayWithoutDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: false);
+numberGenerator.ResetExcludedNumbers();
+numberGenerator.ExcludeNumbers(numArrayWithoutDuplicates);
+var numArrayWithDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: true);
 ```
 
 Printed arrays example:
 
 ```
-87
-87
-159
-93
-57
-159
-51
-129
-57
-69
+687
+237
+813
+849
+807
+951
+933
+177
+717
+213
 
-183
-123
-33
-141
-87
-159
-93
+537
+537
+201
+411
 51
-129
-57
+393
+789
+831
+447
+21
 ```

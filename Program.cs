@@ -7,22 +7,24 @@ public static class Program
         var numberGenerator = new NumberGenerator();
 
         #region Usage example
-
-        numberGenerator.AddCondition(Conditions.IsHigherThan, 3);
-        numberGenerator.AddCondition(Conditions.IsLowerThan, 200);
-        numberGenerator.AddCondition(Conditions.IsDivBy, 3);
-        numberGenerator.AddCondition(Conditions.IsSemiPrime);
+        numberGenerator.SetRange(1, 1000);
         numberGenerator.ExcludeNumbers(new List<int> { 4, 6, 9, 10, 14, 15, 21, 22 });
+        numberGenerator.AddCondition(Conditions.IsDivisibleBy, 3);
+        numberGenerator.AddCondition(Conditions.IsSemiPrime);
 
-        var numArrayWithDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: true);
         var numArrayWithoutDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: false);
 
-        foreach (int number in numArrayWithDuplicates)
+        numberGenerator.ResetExcludedNumbers();
+        numberGenerator.ExcludeNumbers(numArrayWithoutDuplicates);
+        var numArrayWithDuplicates = numberGenerator.GenerateNumbersArray(10, allowDuplicates: true);
+
+        
+        foreach (int number in numArrayWithoutDuplicates)
         {
             Console.WriteLine(number);
         }
         Console.WriteLine();
-        foreach (int number in numArrayWithoutDuplicates)
+        foreach (int number in numArrayWithDuplicates)
         {
             Console.WriteLine(number);
         }
