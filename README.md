@@ -17,7 +17,7 @@ private static bool CheckIfDivisibleBy(int inputNumber, int divisor)
 {
     return inputNumber % divisor == 0;
 }
-public static readonly Func<int, int, bool> IsDivBy = CheckIfDivisibleBy;
+public static readonly Func<int, int, bool> IsDivisibleBy = CheckIfDivisibleBy;
 ```
 
 `Program.cs`
