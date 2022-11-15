@@ -1,10 +1,10 @@
 # Find Numbers Such That
 
-As the title suggests, this console app is an easily extensible generator of random numbers that satisfy given conditions.
+As the title suggests, this console app is an easily extensible generator of numbers that satisfy given conditions.*
 
 While brute-force searching for numbers which fulfill hard-coded conditions is rather easy, this project aims to be a fully universal and extensible solution for usage in cases where there are many conditions, allowing to freely pick and swap between them.
 
-I will also soon add the functionality to find ALL numbers satisfying given conditions in the specified range.
+*Currently it only outputs random numbers fullfilling specified conditions, but I will soon also add the functionality to find ALL numbers that do so.
 
 ## Usage
 
